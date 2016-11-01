@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.1"
+    },
+    "MK6.Common.Grpc.Server": "0.2.0-unstable0255",
+    "MK6.Common.Serilog.Extensions": "2.0.0",
+    "Microsoft.Extensions.Configuration.Abstractions": "1.0.0"
+    
+  },
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  }
+}

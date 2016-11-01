@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package MK6.ServiceDiscovery.Grpc;
+
+message ServiceDescriptor {
+	string id = 1;
+	string display_name = 2;
+	string protocol = 3;
+	string host = 4;
+	int32 port = 5;
+
+	enum ServiceType {
+		RPC = 0;
+		REST = 1;
+	}
+
+	ServiceType type = 6;
+}
+
+message ServiceStatus {
+	enum ServiceStatusCode {
+		STARTING = 0;
+		STARTED = 1;
+		STOPPING = 2;
+		STOPPED = 3;
+		PAUSING = 4;
+		PAUSED = 5;
+	}
+
+	ServiceStatusCode code = 1;
+	string description = 2;
+}
+
+message ServiceStatusRequest {
+	ServiceDescriptor service_descriptor = 1;
+	ServiceStatus service_status = 2;
+}
+
+message ServiceStatusResponse {
+
+}
+
+service PubSubStatusService {
+	rpc Publish (ServiceStatusRequest) returns (ServiceStatusResponse) {}
+}
